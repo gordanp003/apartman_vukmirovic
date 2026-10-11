@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Apartman Vukmirović - Vranjevina, Zlatibor</title>
+<meta name="description" content="Apartman sa bazenom, saunom i hidromasažnom kadom u Vranjevini, na Zlatiboru. Rezervacija preko Booking.com.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<meta name="theme-color" content="#22261F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;family=Jost:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; margin: 0; padding: 0; background: #22261F; }
+body { margin: 0; background: #22261F; color: #ECE4D3; font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+a { color: #C9A66B; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+a:hover { color: #DDBE86; }
+h1, h2, h3, p { margin: 0; }
+</style>
+<script src="./motion.js" data-bg="#22261F"></script>
+</helmet>
+
+<div style="min-height: 100vh; background: #22261F; color: #ECE4D3; overflow-x: clip;">
+
+  <header style="position: sticky; top: 0; z-index: 10; background: #22261F; border-bottom: 1px solid rgba(236,228,211,0.14);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="#vrh" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="assets/logo.png" alt="Apartman Vukmirović logo" style="height: 54px; width: auto; display: block;">
+      </a>
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+        <nav style="display: flex; gap: 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;">
+          <a href="#apartman" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Apartman</a>
+          <a href="#sadrzaji" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Sadržaji</a>
+          <a href="#galerija" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Galerija</a>
+          <a href="#utisci" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Utisci</a>
+          <a href="#lokacija" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Lokacija</a>
+        </nav>
+      </sc-if>
+      <a href="tel:+381000000000" style="display: flex; align-items: center; gap: 8px; background: #C9A66B; color: #22261F; text-decoration: none; font-size: 14px; font-weight: 600; padding: 12px 20px; border-radius: 6px; white-space: nowrap;" style-hover="background: #DDBE86; color: #22261F;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>Pozovite nas</a>
+    </div>
+  </header>
+
+  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+  <section id="vrh" data-screen-label="Hero" style="position: relative; min-height: max(600px, calc(100svh - 79px)); display: flex; align-items: {{ heroAlign }}; background: #22261F; overflow: hidden;">
+    <div style="position: absolute; top: 0; right: 0; bottom: 0; left: {{ heroImgLeft }};">
+      <img src="assets/photos/slika-4.webp" decoding="async" alt="Terasa apartmana sa pogledom na Zlatibor" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; object-position: center 30%; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};">
+    </div>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="position: absolute; top: 0; bottom: 0; left: 40%; width: 30%; pointer-events: none; background: linear-gradient(to right, #22261F 0%, rgba(34,38,31,0.75) 35%, rgba(34,38,31,0) 100%);"></div>
+      <div style="position: absolute; left: 40%; right: 0; bottom: 0; height: 30%; pointer-events: none; background: linear-gradient(to top, rgba(34,38,31,0.5), rgba(34,38,31,0));"></div>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, #22261F 0%, rgba(34,38,31,0.92) 45%, rgba(34,38,31,0.35) 80%, rgba(34,38,31,0.15) 100%);"></div>
+    </sc-if>
+    <div style="position: relative; width: 100%; max-width: 1248px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) 24px; pointer-events: none;">
+      <div style="display: flex; flex-direction: column; gap: 24px; max-width: 540px;">
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A66B;">Vranjevina, Zlatibor</span>
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(46px, 5.6vw, 80px); line-height: 1.02; letter-spacing: -0.01em; color: #ECE4D3; text-wrap: balance;">Odmor na Zlatiboru, <em style="font-style: italic; color: #C9A66B;">sa bazenom i saunom</em></h1>
+        <p style="font-size: 18px; line-height: 1.65; max-width: 54ch; color: #E2D9C6; text-wrap: pretty;">Apartman sa spavaćom sobom, dnevnim boravkom, kuhinjom i terasom koja gleda na vrt. Posle šetnje vas čekaju bazen, sauna i hidromasažna kada.</p>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; padding-top: 8px;">
+          <a href="https://www.booking.com/hotel/rs/apartman-vukmirovic.sr.html" target="_blank" rel="noopener" style="pointer-events: auto; background: #C9A66B; color: #22261F; text-decoration: none; font-size: 16px; font-weight: 600; padding: 17px 32px; border-radius: 6px;" style-hover="background: #DDBE86; color: #22261F;">Proveri dostupnost</a>
+          <span style="display: flex; align-items: baseline; gap: 10px; font-size: 14px; color: #E2D9C6;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #ECE4D3;">9,9</span>ocena gostiju</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+  <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+  <section id="vrh" data-screen-label="Hero mobilni" style="background: #22261F;">
+    <div style="position: relative; height: 62svh; min-height: 400px; overflow: hidden;">
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 50%; z-index: 1; pointer-events: none; background: linear-gradient(to top, #22261F 0%, rgba(34,38,31,0.55) 45%, rgba(34,38,31,0) 100%);"></div>
+      <div style="position: relative; width: 100%; height: 100%;">
+        <img src="assets/photos/hero-mobile.webp" decoding="async" draggable="false" alt="Terasa apartmana sa pogledom na Zlatibor" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};">
+      </div>
+    </div>
+    <div style="position: relative; z-index: 2; margin-top: -72px; padding: 0 20px 40px; display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A66B;">Vranjevina, Zlatibor</span>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 44px; line-height: 1.04; letter-spacing: -0.01em; color: #ECE4D3; text-wrap: balance;">Odmor na Zlatiboru, <em style="font-style: italic; color: #C9A66B;">sa bazenom i saunom</em></h1>
+      <p style="font-size: 17px; line-height: 1.6; color: #E2D9C6; text-wrap: pretty;">Apartman sa spavaćom sobom, dnevnim boravkom, kuhinjom i terasom koja gleda na vrt. Posle šetnje vas čekaju bazen, sauna i hidromasažna kada.</p>
+      <div style="display: flex; flex-direction: column; gap: 16px; padding-top: 8px;">
+        <a href="https://www.booking.com/hotel/rs/apartman-vukmirovic.sr.html" target="_blank" rel="noopener" style="display: block; text-align: center; background: #C9A66B; color: #22261F; text-decoration: none; font-size: 16px; font-weight: 600; padding: 17px 24px; border-radius: 6px;" style-active="background: #DDBE86; color: #22261F;">Proveri dostupnost</a>
+        <span style="display: flex; justify-content: center; align-items: baseline; gap: 10px; font-size: 14px; color: #E2D9C6;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #ECE4D3;">9,9</span>ocena gostiju</span>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+  <section id="apartman" data-screen-label="Apartman" style="min-height: {{ secMin }}; display: flex; flex-direction: column; justify-content: center; padding: clamp(40px, 5vw, 72px) clamp(20px, 5vw, 24px) clamp(48px, 7vw, 96px);">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(32px, 4vw, 48px);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(32px, 5vw, 56px); align-items: stretch;">
+        <div style="order: {{ aptImgOrder }}; display: grid; grid-template-rows: 1fr 1fr; gap: 16px; min-height: {{ aptImgMin }};">
+          <div style="position: relative; min-height: 200px; border-radius: 4px; overflow: hidden;">
+            <img src="assets/photos/spavaca-soba.webp" decoding="async" alt="Spavaća soba" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};">
+          </div>
+          <div style="position: relative; min-height: 200px; border-radius: 4px; overflow: hidden;">
+            <img src="assets/photos/terasa.webp" decoding="async" alt="Pogled sa terase na Zlatibor" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};">
+          </div>
+        </div>
+        <div style="display: {{ aptColDisplay }}; flex-direction: column; gap: 28px;">
+          <div style="order: 1; display: flex; flex-direction: column; gap: 20px;">
+            <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A66B;">Apartman</span>
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(38px, 4.6vw, 56px); line-height: 1.05; color: #ECE4D3; text-wrap: balance;">Od spavaće sobe <em style="font-style: italic;">do terase</em></h2>
+            <p style="font-size: 17px; line-height: 1.65; max-width: 46ch; color: #CDC4B0; text-wrap: pretty;">Spavaća soba je odvojena od dnevnog boravka. Ako ste četvoro, svako ima svoj kutak.</p>
+          </div>
+          <div style="order: 3; display: flex; flex-direction: column;">
+            <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-top: 1px solid rgba(236,228,211,0.16);">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #C9A66B; padding-top: 3px;">01</span>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 24px; color: #ECE4D3;">Spavaća soba</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #CDC4B0;">Jedan bračni krevet.</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-top: 1px solid rgba(236,228,211,0.16);">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #C9A66B; padding-top: 3px;">02</span>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 24px; color: #ECE4D3;">Dnevni boravak</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #CDC4B0;">Kauč na razvlačenje za još dve osobe i flat-screen TV.</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-top: 1px solid rgba(236,228,211,0.16);">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #C9A66B; padding-top: 3px;">03</span>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 24px; color: #ECE4D3;">Kuhinja</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #CDC4B0;">Opremljena za kuvanje. Doručak spremate kad ustanete, a ne kad restoran otvori.</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-top: 1px solid rgba(236,228,211,0.16);">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #C9A66B; padding-top: 3px;">04</span>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 24px; color: #ECE4D3;">Kupatilo</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #CDC4B0;">U sklopu apartmana.</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-top: 1px solid rgba(236,228,211,0.16); border-bottom: 1px solid rgba(236,228,211,0.16);">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #C9A66B; padding-top: 3px;">05</span>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 24px; color: #ECE4D3;">Terasa</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #CDC4B0;">Gleda na vrt. Jutarnja kafa je ovde.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(45%, 200px), 1fr)); gap: 1px; background: rgba(236,228,211,0.16); border: 1px solid rgba(236,228,211,0.16); border-radius: 4px; overflow: hidden;">
+        <div style="padding: 24px; display: flex; flex-direction: column; gap: 6px; background: #22261F; align-items: {{ statsAlign }}; text-align: {{ statsText }};">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 36px; line-height: 1; color: #ECE4D3;">38 m²</span>
+          <span style="font-size: 14px; color: #CDC4B0;">Površina</span>
+        </div>
+        <div style="padding: 24px; display: flex; flex-direction: column; gap: 6px; background: #22261F; align-items: {{ statsAlign }}; text-align: {{ statsText }};">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 36px; line-height: 1; color: #ECE4D3;">do 4</span>
+          <span style="font-size: 14px; color: #CDC4B0;">Gosta</span>
+        </div>
+        <div style="padding: 24px; display: flex; flex-direction: column; gap: 6px; background: #22261F; align-items: {{ statsAlign }}; text-align: {{ statsText }};">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 36px; line-height: 1; color: #ECE4D3;">Besplatno</span>
+          <span style="font-size: 14px; color: #CDC4B0;">WiFi i privatni parking</span>
+        </div>
+        <div style="padding: 24px; display: flex; flex-direction: column; gap: 6px; background: #22261F; align-items: {{ statsAlign }}; text-align: {{ statsText }};">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 36px; line-height: 1; color: #ECE4D3;">9,6</span>
+          <span style="font-size: 14px; color: #CDC4B0;">Ocena lokacije</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sadrzaji" data-screen-label="Sadržaji" style="min-height: {{ secMin }}; display: flex; flex-direction: column; justify-content: center; background: #2C3128; padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 24px);">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(32px, 5vw, 56px); align-items: stretch;">
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A66B;">Sadržaji</span>
+          <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(38px, 4.6vw, 56px); line-height: 1.05; color: #ECE4D3; text-wrap: balance;">Kad se vratite sa šetnje</h2>
+          <p style="font-size: 17px; line-height: 1.65; max-width: 46ch; color: #CDC4B0; text-wrap: pretty;">Bazen, sauna i hidromasažna kada su za goste apartmana. Posle dana na planini ne morate nigde da se vozite da biste se odmorili.</p>
+        </div>
+        <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+        <div style="position: relative; flex: 1; min-height: 220px; border-radius: 4px; overflow: hidden;">
+          <img src="assets/photos/slika-3.webp" decoding="async" alt="Bazen" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: {{ bazenImg }}; transition: opacity 0.5s; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};">
+          <img src="assets/photos/slika-8.webp" decoding="async" alt="Sauna" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: {{ saunaImg }}; transition: opacity 0.5s; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};">
+          <img src="assets/photos/slika-14.webp" decoding="async" alt="Hidromasažna kada" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: {{ kadaImg }}; transition: opacity 0.5s; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};">
+        </div>
+        </sc-if>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <div onMouseEnter="{{ onBazen }}" onMouseLeave="{{ offHover }}" onClick="{{ onBazen }}" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px 16px; padding: 20px 0; border-top: 1px solid rgba(236,228,211,0.16); cursor: default;">
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3vw, 34px); color: {{ bazenColor }}; transition: color 0.3s;">Bazen</h3>
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="#C9A66B" stroke-width="1.3"><path d="M2 18c3 0 3 2 6 2s3-2 6-2 3 2 6 2 3-2 6-2"></path><path d="M2 23c3 0 3 2 6 2s3-2 6-2 3 2 6 2 3-2 6-2"></path><path d="M9 15V4h6M9 9h6"></path></svg>
+          <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+          <p style="grid-column: 1 / -1; font-size: 15px; line-height: 1.6; max-width: 46ch; color: #CDC4B0; opacity: {{ bazenOp }}; transition: opacity 0.3s; text-wrap: pretty;">Bazen je u zatvorenom delu zgrade, sa ležaljkama pored vode. Možete da plivate i kad napolju pada sneg.</p>
+          </sc-if>
+          <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+          <div style="grid-column: 1 / -1; position: relative; aspect-ratio: 4 / 3; margin-top: 10px; border-radius: 4px; overflow: hidden;"><img src="assets/photos/slika-3.webp" decoding="async" draggable="false" alt="Bazen" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};"></div>
+          <p style="grid-column: 1 / -1; padding-top: 8px; font-size: 16px; line-height: 1.6; color: #CDC4B0; text-wrap: pretty;">Bazen je u zatvorenom delu zgrade, sa ležaljkama pored vode. Možete da plivate i kad napolju pada sneg.</p>
+          </sc-if>
+        </div>
+        <div onMouseEnter="{{ onSauna }}" onMouseLeave="{{ offHover }}" onClick="{{ onSauna }}" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px 16px; padding: 20px 0; border-top: 1px solid rgba(236,228,211,0.16); cursor: default;">
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3vw, 34px); color: {{ saunaColor }}; transition: color 0.3s;">Sauna</h3>
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="#C9A66B" stroke-width="1.3"><path d="M9 3c-2 3 2 5 0 8M14 3c-2 3 2 5 0 8M19 3c-2 3 2 5 0 8"></path><path d="M3 16h22v9H3z"></path></svg>
+          <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+          <p style="grid-column: 1 / -1; font-size: 15px; line-height: 1.6; max-width: 46ch; color: #CDC4B0; opacity: {{ saunaOp }}; transition: opacity 0.3s; text-wrap: pretty;">Drvena sauna sa grejačem na kamen. Dobro dođe posle skijanja ili dugog pešačenja po Zlatiboru.</p>
+          </sc-if>
+          <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+          <div style="grid-column: 1 / -1; position: relative; aspect-ratio: 4 / 3; margin-top: 10px; border-radius: 4px; overflow: hidden;"><img src="assets/photos/slika-8.webp" decoding="async" draggable="false" alt="Sauna" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};"></div>
+          <p style="grid-column: 1 / -1; padding-top: 8px; font-size: 16px; line-height: 1.6; color: #CDC4B0; text-wrap: pretty;">Drvena sauna sa grejačem na kamen. Dobro dođe posle skijanja ili dugog pešačenja po Zlatiboru.</p>
+          </sc-if>
+        </div>
+        <div onMouseEnter="{{ onKada }}" onMouseLeave="{{ offHover }}" onClick="{{ onKada }}" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px 16px; padding: 20px 0; border-top: 1px solid rgba(236,228,211,0.16); cursor: default;">
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px, 3vw, 34px); color: {{ kadaColor }}; transition: color 0.3s;">Hidromasažna kada</h3>
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="#C9A66B" stroke-width="1.3"><path d="M3 14h22v4a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6z"></path><circle cx="10" cy="9" r="1.5"></circle><circle cx="15" cy="6" r="1.5"></circle><circle cx="19" cy="10" r="1.5"></circle></svg>
+          <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+          <p style="grid-column: 1 / -1; font-size: 15px; line-height: 1.6; max-width: 46ch; color: #CDC4B0; opacity: {{ kadaOp }}; transition: opacity 0.3s; text-wrap: pretty;">Kada ima masažne mlazove i svetlo u vodi. Upalite je uveče, pre spavanja.</p>
+          </sc-if>
+          <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+          <div style="grid-column: 1 / -1; position: relative; aspect-ratio: 4 / 3; margin-top: 10px; border-radius: 4px; overflow: hidden;"><img src="assets/photos/slika-14.webp" decoding="async" draggable="false" alt="Hidromasažna kada" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};"></div>
+          <p style="grid-column: 1 / -1; padding-top: 8px; font-size: 16px; line-height: 1.6; color: #CDC4B0; text-wrap: pretty;">Kada ima masažne mlazove i svetlo u vodi. Upalite je uveče, pre spavanja.</p>
+          </sc-if>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 0 24px; border-top: 1px solid rgba(236,228,211,0.16);">
+          <div style="display: flex; align-items: center; justify-content: {{ amenJustify }}; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(236,228,211,0.16); font-size: 16px; color: #CDC4B0;"><span style="width: 6px; height: 6px; background: #C9A66B; transform: rotate(45deg); flex-shrink: 0;"></span>Besplatan WiFi</div>
+          <div style="display: flex; align-items: center; justify-content: {{ amenJustify }}; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(236,228,211,0.16); font-size: 16px; color: #CDC4B0;"><span style="width: 6px; height: 6px; background: #C9A66B; transform: rotate(45deg); flex-shrink: 0;"></span>Besplatan privatni parking</div>
+          <div style="display: flex; align-items: center; justify-content: {{ amenJustify }}; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(236,228,211,0.16); font-size: 16px; color: #CDC4B0;"><span style="width: 6px; height: 6px; background: #C9A66B; transform: rotate(45deg); flex-shrink: 0;"></span>Flat-screen TV</div>
+          <div style="display: flex; align-items: center; justify-content: {{ amenJustify }}; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(236,228,211,0.16); font-size: 16px; color: #CDC4B0;"><span style="width: 6px; height: 6px; background: #C9A66B; transform: rotate(45deg); flex-shrink: 0;"></span>Opremljena kuhinja</div>
+          <div style="display: flex; align-items: center; justify-content: {{ amenJustify }}; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(236,228,211,0.16); font-size: 16px; color: #CDC4B0;"><span style="width: 6px; height: 6px; background: #C9A66B; transform: rotate(45deg); flex-shrink: 0;"></span>Terasa sa pogledom na vrt</div>
+          <div style="display: flex; align-items: center; justify-content: {{ amenJustify }}; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(236,228,211,0.16); font-size: 16px; color: #CDC4B0;"><span style="width: 6px; height: 6px; background: #C9A66B; transform: rotate(45deg); flex-shrink: 0;"></span>Kupatilo u apartmanu</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galerija" data-screen-label="Galerija" style="background: #CFC5AF; color: #22261F; padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 24px);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(32px, 4vw, 48px);">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #5E4A26;">Galerija</span>
+          <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(38px, 4.6vw, 56px); line-height: 1.05; color: #22261F;">Pogledajte pre nego što dođete</h2>
+        </div>
+        <a href="https://www.booking.com/hotel/rs/apartman-vukmirovic.sr.html" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 500; color: #22261F;">Sve fotografije na Booking.com</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(45%, 240px), 1fr)); gap: clamp(8px, 2vw, 16px);">
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-18.webp" decoding="async" alt="Dnevni boravak" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-9.webp" decoding="async" alt="Dnevni boravak i trpezarija" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-19.webp" decoding="async" alt="Kuhinja" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-11.webp" decoding="async" alt="Spavaća soba" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-2.webp" decoding="async" alt="Kuhinja" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-12.webp" decoding="async" alt="Trpezarijski sto" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-17.webp" decoding="async" alt="TV u dnevnom boravku" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-16.webp" decoding="async" alt="Bazen" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-8.webp" decoding="async" alt="Sauna" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-14.webp" decoding="async" alt="Hidromasažna kada" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-15.webp" decoding="async" alt="Soba za masažu" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;"><img src="assets/photos/thumb/slika-6.webp" decoding="async" alt="Dvorište i dečje igralište" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease; -webkit-user-drag: none; user-select: none; pointer-events: {{ imgPE }};" style-hover="transform: scale(1.07); filter: brightness(1.05);"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="utisci" data-screen-label="Utisci" style="min-height: {{ secMin }}; display: flex; flex-direction: column; justify-content: center; padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 24px);">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(32px, 5vw, 56px); align-items: stretch;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A66B;">Utisci gostiju</span>
+        <div style="display: flex; align-items: baseline; gap: 16px; padding: 8px 0 32px; border-bottom: 1px solid rgba(236,228,211,0.16);">
+          <span style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(110px, 14vw, 176px); line-height: 0.9; color: #ECE4D3;">9,9</span>
+          <span style="font-size: 15px; color: #CDC4B0;">od 10</span>
+        </div>
+        <p style="font-size: 17px; line-height: 1.65; max-width: 36ch; color: #CDC4B0; padding-top: 12px;">Prosečna ocena gostiju na Booking.com. Lokaciju su ocenili sa 9,6.</p>
+        <a href="https://www.booking.com/hotel/rs/apartman-vukmirovic.sr.html" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 500; align-self: flex-start; margin-top: auto;">Pročitajte sve recenzije</a>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <div style="flex: 1; padding: 24px 0; border-top: 1px solid rgba(236,228,211,0.16); display: flex; flex-direction: column; justify-content: space-between; gap: 16px;">
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.7; letter-spacing: 0.04em; color: #A9A190;">TEKST RECENZIJE GOSTA SA BOOKING.COM</p>
+          <div style="display: flex; justify-content: space-between; gap: 16px; font-size: 14px;"><span style="color: #ECE4D3; font-weight: 500;">Ime gosta, zemlja</span><span style="color: #C9A66B;">10 / 10</span></div>
+        </div>
+        <div style="flex: 1; padding: 24px 0; border-top: 1px solid rgba(236,228,211,0.16); display: flex; flex-direction: column; justify-content: space-between; gap: 16px;">
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.7; letter-spacing: 0.04em; color: #A9A190;">TEKST RECENZIJE GOSTA SA BOOKING.COM</p>
+          <div style="display: flex; justify-content: space-between; gap: 16px; font-size: 14px;"><span style="color: #ECE4D3; font-weight: 500;">Ime gosta, zemlja</span><span style="color: #C9A66B;">10 / 10</span></div>
+        </div>
+        <div style="flex: 1; padding: 24px 0; border-top: 1px solid rgba(236,228,211,0.16); border-bottom: 1px solid rgba(236,228,211,0.16); display: flex; flex-direction: column; justify-content: space-between; gap: 16px;">
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.7; letter-spacing: 0.04em; color: #A9A190;">TEKST RECENZIJE GOSTA SA BOOKING.COM</p>
+          <div style="display: flex; justify-content: space-between; gap: 16px; font-size: 14px;"><span style="color: #ECE4D3; font-weight: 500;">Ime gosta, zemlja</span><span style="color: #C9A66B;">10 / 10</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lokacija" data-screen-label="Lokacija" style="min-height: {{ secMin }}; display: flex; flex-direction: column; justify-content: center; background: #2C3128; padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 24px);">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(32px, 5vw, 56px); align-items: stretch;">
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A66B;">Lokacija</span>
+          <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(38px, 4.6vw, 56px); line-height: 1.05; color: #ECE4D3;">Vranjevina, Zlatibor</h2>
+          <p style="font-size: 17px; line-height: 1.65; max-width: 46ch; color: #CDC4B0; text-wrap: pretty;">Gosti su lokaciju ocenili sa 9,6. Parking je privatni i besplatan, pa ne tražite mesto za auto kad stignete.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid rgba(236,228,211,0.16); border-bottom: 1px solid rgba(236,228,211,0.16);">
+          <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A66B;">Adresa</span>
+          <span style="font-size: 17px; color: #ECE4D3;">Vranjevina, 31315 Zlatibor, Srbija</span>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Apartman%20Vukmirovi%C4%87%2C%20Vranjevina%2C%20Zlatibor" target="_blank" rel="noopener" style="font-size: 15px; font-weight: 500; align-self: flex-start;">Otvori u Google mapama</a>
+      </div>
+      <div style="position: relative; min-height: 380px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(236,228,211,0.12); background: #343A30;">
+        <iframe title="Mapa: Apartman Vukmirović, Vranjevina, Zlatibor" src="https://maps.google.com/maps?q=Apartman%20Vukmirovi%C4%87%2C%20Vranjevina%2C%20Zlatibor&amp;z=15&amp;output=embed" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Rezervacija" style="position: relative; padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 24px); background: #22261F;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
+      <img src="assets/logo.png" alt="" style="height: 96px; width: auto; display: block;">
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(40px, 5.4vw, 68px); line-height: 1.04; color: #ECE4D3; max-width: 16ch; text-wrap: balance;">Proverite <em style="font-style: italic; color: #C9A66B;">slobodne termine</em></h2>
+      <p style="font-size: 17px; line-height: 1.65; max-width: 46ch; color: #CDC4B0; text-wrap: pretty;">Cenu i slobodne datume vidite na Booking.com. Tamo odmah i rezervišete.</p>
+      <a href="https://www.booking.com/hotel/rs/apartman-vukmirovic.sr.html" target="_blank" rel="noopener" style="margin-top: 8px; background: #C9A66B; color: #22261F; text-decoration: none; font-size: 16px; font-weight: 600; padding: 17px 36px; border-radius: 6px;" style-hover="background: #DDBE86; color: #22261F;">Proveri dostupnost</a>
+    </div>
+  </section>
+
+  <footer data-screen-label="Footer" style="background: #1B1E18; border-top: 1px solid rgba(236,228,211,0.14); padding: clamp(48px, 8vw, 72px) clamp(20px, 5vw, 24px) 28px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(32px, 4vw, 48px);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 40px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 20px; align-items: {{ footAlign }}; text-align: {{ footText }};">
+          <img src="assets/logo.png" alt="Apartman Vukmirović" style="height: 72px; width: auto; display: block; align-self: {{ footAlign }};">
+          <p style="font-size: 15px; line-height: 1.6; max-width: 30ch; color: #CDC4B0; text-wrap: pretty;">Apartman sa bazenom, saunom i hidromasažnom kadom u Vranjevini, na Zlatiboru.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px; align-items: {{ footAlign }}; text-align: {{ footText }};">
+          <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A66B;">Stranice</span>
+          <nav style="display: flex; flex-direction: column; gap: 10px; font-size: 15px;">
+            <a href="#apartman" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Apartman</a>
+            <a href="#sadrzaji" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Sadržaji</a>
+            <a href="#galerija" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Galerija</a>
+            <a href="#utisci" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Utisci</a>
+            <a href="#lokacija" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Lokacija</a>
+          </nav>
+        </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 16px; align-items: {{ footAlign }}; text-align: {{ footText }};">
+          <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A66B;">Adresa</span>
+          <p style="font-size: 15px; line-height: 1.6; color: #ECE4D3;">Vranjevina<br>31315 Zlatibor, Srbija</p>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Apartman%20Vukmirovi%C4%87%2C%20Vranjevina%2C%20Zlatibor" target="_blank" rel="noopener" style="font-size: 15px;">Otvori u Google mapama</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px; align-items: {{ footAlign }}; text-align: {{ footText }};">
+          <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A66B;">Rezervacija</span>
+          <p style="font-size: 15px; line-height: 1.6; color: #CDC4B0;">Cene i slobodni termini su na Booking.com.</p>
+          <a href="https://www.booking.com/hotel/rs/apartman-vukmirovic.sr.html" target="_blank" rel="noopener" style="align-self: {{ footAlign }}; background: #C9A66B; color: #22261F; text-decoration: none; font-size: 14px; font-weight: 600; padding: 12px 20px; border-radius: 6px;" style-hover="background: #DDBE86; color: #22261F;">Proveri dostupnost</a>
+        </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: {{ footJustify }}; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(236,228,211,0.14); font-size: 14px; color: #A9A190;">
+        <span>© 2026 Apartman Vukmirović</span>
+        <a href="#vrh" style="color: #ECE4D3; text-decoration: none;" style-hover="color: #C9A66B;">Na vrh ↑</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { wide: typeof window === 'undefined' ? true : window.innerWidth >= 768, hov: null };
+  componentDidMount() {
+    try {
+      if (window.parent !== window && /Mobilni/.test(decodeURIComponent(window.parent.location.pathname))) {
+        const st = document.createElement('style');
+        st.textContent = 'html{scrollbar-width:none}html::-webkit-scrollbar{display:none}';
+        document.head.appendChild(st);
+      }
+    } catch (e) {}
+    const go = () => window.VukMotion ? window.VukMotion.init() : setTimeout(go, 30);
+    requestAnimationFrame(go);
+    this.onResize = () => this.setState({ wide: window.innerWidth >= 768 });
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  renderVals() {
+    const h = this.state.hov, set = k => () => this.setState({ hov: k });
+    const w = this.state.wide;
+    const v = { wide: w, narrow: !w, secMin: w ? 'calc(100svh - 79px)' : 'auto', heroImgLeft: w ? '40%' : '0', heroAlign: w ? 'center' : 'flex-end', offHover: set(null),
+      aptImgOrder: w ? 0 : 2, aptImgMin: w ? '460px' : '520px', aptColDisplay: w ? 'flex' : 'contents',
+      statsAlign: 'flex-start', statsText: 'left', amenJustify: 'flex-start',
+      imgPE: w ? 'auto' : 'none', footAlign: 'flex-start', footText: 'left', footJustify: 'space-between' };
+    ['bazen', 'sauna', 'kada'].forEach(k => {
+      v['on' + k[0].toUpperCase() + k.slice(1)] = set(k);
+      v[k + 'Op'] = h === k ? 1 : 0;
+      v[k + 'Color'] = h === k ? '#C9A66B' : '#ECE4D3';
+    });
+    const act = h || 'bazen';
+    ['bazen', 'sauna', 'kada'].forEach(k => { v[k + 'Img'] = act === k ? 1 : 0; });
+    return v;
+  }
+}
+</script>
+</body>
+</html>
